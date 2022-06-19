@@ -13,7 +13,14 @@ struct Bioequivalence
     formulations
     sequences
 end
+"""
+    bioquivalence(data;
+    variable = nothing,
+    subject = :subject,
+    period = :period, formulation = :formulation, sequence = :sequence, reference = nothing, design = nothing, io::IO = stdout, seqcheck = true, dropcheck = true)
 
+
+"""
 function bioquivalence(data;
     variable = nothing,
     subject = :subject,
