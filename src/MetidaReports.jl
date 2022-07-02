@@ -1,6 +1,6 @@
 module MetidaReports
 
-    using StatsModels, DataFrames, Mustache
+    using StatsModels, DataFrames, Mustache, JSON
     import Base: ht_keyindex
 
     include("htmltpl.jl")

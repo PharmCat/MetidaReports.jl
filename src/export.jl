@@ -1,3 +1,6 @@
+
+
+
 const PD_DICT = Dict(
 :AUCABL   => "AUC above BL",
 :AUCBBL   => "AUC below BL",
@@ -24,6 +27,26 @@ const PK_DICT = Dict(
 :AUCpct     => "AUC%")
 
 
+const STAT_DICT = Dict(
+:mean   => "Mean",
+:sd   => "SD",
+:median   => "Median",
+:geom   => "Goemtric Mean",
+:min => "Minimum",
+:max => "Maximum",
+:n => "Num",
+:posn     => "Positive Num",
+:cv     => "CV",
+:lci     => "CI Lower",
+:uci     => "CI Upper")
+
+#ppath = dirname(@__FILE__)
+#cd(ppath)
+#f = open(joinpath(ppath, "json", "pd_text_en.json"), "w")
+#JSON.print(f, PD_DICT)
+#close(f)
+
+
 function dictnames(name::Any, dict::Union{Symbol, Dict})
     if !isa(dict, Dict) return name end
     dlist = keys(dict)
@@ -40,6 +63,45 @@ function cellformat(val, missingval)
     else
         return val
     end
+end
+#
+#
+# Make span matrix
+function make_tablematrix(data)
+    rown        = size(data, 1)
+    coln        = size(data, 2)
+    tablematrix = ones(Int, rown, coln)
+    for c = 1:coln
+        s = true
+        while s
+            s = false
+            for r = 2:rown
+                if tablematrix[r,c] !=0 && !ismissing(data[r,c]) && !ismissing(data[r-1,c]) && data[r,c] == data[r-1,c]
+                    tablematrix[r,c] -= 1;
+                    tablematrix[r-1,c] += 1;
+                    s = true;
+                end
+            end
+        end
+    end
+    for c = 2:coln
+        for r = 1:rown
+            if tablematrix[r, c] > tablematrix[r, c - 1]
+                for i = 1:tablematrix[r, c] - 1
+                    if tablematrix[r + i, c - 1] > tablematrix[r + i, c]
+                        tablematrix[r + i, c] = tablematrix[r, c] - i
+                        tablematrix[r, c] = i
+                        break
+                    end
+                end
+            end
+        end
+    end
+    tablematrix
+end
+
+function cell_class(r, rn, c, cn)
+    (c > 1 && c < cn) ? "midcell" : "cell"
 end
 
 """
@@ -112,9 +174,9 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
     <TABLE CELLPADDING=0 CELLSPACING=0>
         <THEAD>
         <TR CLASS=cell>
-            <TD COLSPAN="""*string(coln)*""" CLASS=title>
+            <TD COLSPAN=$coln CLASS=title>
                 <P ALIGN=CENTER CLASS=cell>
-                <FONT CLASS=title><B> """*title*""" </B></FONT></P>
+                <FONT CLASS=title><B> $title </B></FONT></P>
             </TD>
         </TR>"""
 
@@ -125,7 +187,7 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
             out *= """
         <TD CLASS=hcell>
             <P ALIGN=CENTER CLASS=cell>
-            <FONT CLASS=cell> """*string(dictnames(cnames[c], dict))*""" </FONT></P>
+            <FONT CLASS=cell> $(dictnames(cnames[c], dict)) </FONT></P>
         </TD>"""
         end
 
@@ -136,6 +198,10 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
     if !nosort
         sort!(data, sort)
     end
+
+
+    tablematrix = make_tablematrix(data)
+    #=
     tablematrix .= 1
     for c = 1:coln
         s = true
@@ -163,6 +229,7 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
             end
         end
     end
+    =#
         #print(tablematrix)
 
     for r = 1:rown
@@ -170,9 +237,9 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
         for c = 1:coln
             if tablematrix[r,c] > 0 || !any(x -> x == cnames[c], rspan)
                 rowstr *= """
-            <TD ROWSPAN="""*(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1")*""" VALIGN=TOP CLASS=\""""*((c > 1 && c < coln) ? "midcell" : "cell")*"""\">
+            <TD ROWSPAN=$(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1") VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
                 <P ALIGN=RIGHT CLASS=cell>
-                <FONT CLASS=cell><SPAN LANG="ru-RU">"""*string(cellformat(data[r,c], missingval))*"""</SPAN></FONT></P>
+                <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data[r,c], missingval))</SPAN></FONT></P>
             </TD>"""
             end
         end
@@ -181,13 +248,13 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
 
     for r in rowlist
         out *="""
-        <TR CLASS=cell> """*r*"""
+        <TR CLASS=cell> $r
         </TR>"""
     end
 
     out *= """
     </TBODY>
-    <TFOOT><TR><TD COLSPAN="""*string(coln)*""" class=foot></TD><TR></TFOOT>
+    <TFOOT><TR><TD COLSPAN=$(coln) class=foot> </TD><TR></TFOOT>
     </TABLE>"""
     out *= html_f
 
