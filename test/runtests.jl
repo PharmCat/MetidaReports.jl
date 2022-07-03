@@ -1,4 +1,4 @@
-#using MetidaReports
+using MetidaReports
 using Test
 using DataFrames, CSV, CategoricalArrays
 
