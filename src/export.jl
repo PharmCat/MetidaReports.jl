@@ -43,14 +43,39 @@ function cellformat(val, missingval)
 end
 
 """
-    htmlexport(data; io::IO = stdout, sort = [],
-        rspan=:all, title="Title", dict::Union{Symbol, Dict} = :undef)
+    htmlexport(data, file; mode = "w",
+        sort = nothing, nosort = false, rspan = nothing, title="Title",
+        dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
 
 HTLM export.
 
 By default sort by first column.
 """
-function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+function htmlexport(data, file; mode = "w", sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+    out =  htmlexport_(data; sort = sort, nosort = nosort, rspan = rspan, title = title, dict = dict, body = body, missingval = missingval)
+    open(file, mode) do io
+        write(io, out)
+    end
+    nothing
+end
+"""
+    htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false,
+        sort = nothing, nosort = false, rspan = nothing, title="Title",
+        dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+
+HTLM export.
+
+"""
+function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false, sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+    out = htmlexport_(data; sort = sort, nosort = nosort, rspan = rspan, title=title, dict = dict, body = body, missingval = missingval)
+    if isa(io, IO)
+        write(io, out)
+    end
+    if strout return out end
+    nothing
+end
+
+function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
     rowlist = Array{String,1}(undef, 0)
     cnames  = Symbol.(names(data))
     ###
@@ -191,6 +216,5 @@ function htmlexport(data; io::IO = stdout, sort = nothing, nosort = false, rspan
     </TABLE>"""
     out *= html_f
 
-        print(io, out)
-
+    out
 end
