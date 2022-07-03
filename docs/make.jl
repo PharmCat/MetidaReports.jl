@@ -1,4 +1,4 @@
-using Documenter, Metida
+using Documenter, MetidaReports, DataFrames, CSV
 #using DocumenterLaTeX
 
 makedocs(
@@ -7,6 +7,7 @@ makedocs(
     authors = "Vladimir Arnautov",
     pages = [
         "Home" => "index.md",
+        "API" => "api.md",
     ],
 )
 

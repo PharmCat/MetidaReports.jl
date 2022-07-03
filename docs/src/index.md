@@ -1,5 +1,7 @@
 # MetidaReports
 
+Package for generation NCA and Bioequivalence reports.
+
 ```@meta
 CurrentModule = MetidaReports
 ```
