@@ -8,12 +8,14 @@ version = "0.1.0"
 
 MetidaBase = "075456b7-4006-432f-9324-2f8453996c49"
 Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 
 [compat]
 
-MetidaBase = "0.3"
+MetidaBase = "0.5"
 Weave = "0.10"
-Julia = "1"
+JSON = "0.20, 0.21"
+julia = "1"
 
 [extras]
 
