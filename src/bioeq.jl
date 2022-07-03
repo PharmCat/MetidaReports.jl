@@ -24,7 +24,16 @@ end
 function bioquivalence(data;
     variable = nothing,
     subject = :subject,
-    period = :period, formulation = :formulation, sequence = :sequence, reference = nothing, design = nothing, io::IO = stdout, seqcheck = true, dropcheck = true)
+    period = :period,
+    formulation = :formulation,
+    sequence = nothing,
+    reference = nothing,
+    design = nothing,
+    io::IO = stdout,
+    seqcheck = true,
+    dropcheck = true,
+    info = true,
+    autoseq = false)
 
     dfnames = Symbol.(names(data))
 
@@ -36,7 +45,11 @@ function bioquivalence(data;
 
     disallowmissing!(data, formulation)
 
+    obsnum = size(data, 1)
+
     subjects = unique(data[!, subject])
+
+    subjnum = length(subjects)
 
     formulations = sort!(unique(data[!, formulation]))
 
@@ -47,9 +60,9 @@ function bioquivalence(data;
         reference ∈ formulations || error("Reference formulation \"$(reference)\" not found in dataframe.")
     end
 
-    local dropout = nothing
-    local periods = nothing
-    local sequences = nothing
+    dropout = nothing
+    periods = nothing
+    sequences = nothing
 
     if isnothing(period) && isnothing(sequence) && isnothing(design)
         length(subjects) == length(data[!, subject]) || error("Trial design seems parallel, but subjects not unique!")
@@ -62,50 +75,68 @@ function bioquivalence(data;
 
         !isnothing(period) || error("Trial design seems NOT parallel, but period is nothing")
 
-        !isnothing(sequence) || error("Trial design seems NOT parallel, but sequence is nothing")
+        autoseq || !isnothing(sequence) || error("Trial design seems NOT parallel, but sequence is nothing")
 
         period ∈ dfnames || error("Period not found in dataframe!")
 
-        sequence ∈ dfnames || error("Sequence not found in dataframe!")
+        if !isnothing(sequence)
+            sequence ∈ dfnames || error("Sequence not found in dataframe!")
+        end
 
-        periods = unique(data[!, period])
-
-        sequences = unique(data[!, sequence])
-
-        push!(fac, period, sequence)
-
+        periods = sort!(unique(data[!, period]))
+        push!(fac, period)
         disallowmissing!(data, period)
 
-        disallowmissing!(data, sequence)
-
-        unstdata = unstack(data, [subject, sequence], period, formulation)
-
-        pnames = Symbol.(periods)
-        if dropcheck
-            if !all(completecases(unstdata, pnames))
-                dropout = true
-                dropmissing!(unstdata)
-                 @info "Dropuot(s) found in dataframe!"
-            else
-                @info "No dropuot(s) found in dataframe!"
-                dropout = false
+        if autoseq || seqcheck
+            subjdict = Dict()
+            for p in periods
+                for i = 1:obsnum
+                    if data[i, period] == p
+                        subj = data[i, subject]
+                        if haskey(subjdict, subj)
+                            subjdict[subj] *= string(data[i, formulation])
+                        else
+                            subjdict[subj] = string(data[i, formulation])
+                        end
+                    end
+                end
             end
         end
 
-        if seqcheck
-            seqdict = Dict()
-            for i  in 1:size(unstdata, 1)
-                if ht_keyindex(seqdict, unstdata[i, pnames]) > 0
-                    if seqdict[unstdata[i, pnames]] != unstdata[i, sequence] error("Sequence error!") end
-                else
-                    seqdict[unstdata[i, pnames]] = unstdata[i, sequence]
-                end
+        if isnothing(sequence) && autoseq
+            sequences = unique(values(subjdict))
+        elseif isnothing(sequence)
+            error("Sequence is nothing, but autoseq is false")
+        else
+            if info && autoseq @info "autoseq is true, but sequence defined - sequence column used" end
+            sequences = unique(data[!, sequence])
+            push!(fac, sequence)
+            disallowmissing!(data, sequence)
+        end
+
+        if dropcheck
+            if !isnothing(variable) && !all(completecases(data, variable))
+                dropout = true
+                 @info "Dropuot(s) found in dataframe!"
+            elseif !isnothing(variable)
+                info && @info "No dropuot(s) found in dataframe!"
+                dropout = false
             end
-            @info "Sequences looks correct..."
+
+        end
+
+        if seqcheck && !isnothing(sequence)
+            for i = 1:obsnum
+                if data[i, sequence] != subjdict[data[i, subject]] error("Sequence error or data is incomplete! \n Subject: $(data[i, subject]), Sequence: $(data[i, sequence]), auto: $(subjdict[data[i, subject]])") end
+            end
+            if length(unique(length.(sequences))) > 1
+                error("Some sequence have different length!")
+            end
+            info && @info "Sequences looks correct..."
         end
 
         if isnothing(design)
-            @info "Trying to find out the design..."
+            info && @info "Trying to find out the design..."
             design = Symbol("$(length(formulations))X$(length(sequences))X$(length(periods))")
             @info  "Seems design type is: $design"
         else
@@ -114,7 +145,7 @@ function bioquivalence(data;
             if length(formulations) != parse(Int, spldes[1]) error("Design error: formulations count wrong!") end
             if length(sequences) != parse(Int, spldes[2]) error("Design error: sequences count wrong!") end
             if length(periods) != parse(Int, spldes[3]) error("Design error: periods count wrong!") end
-            @info "Design type seems fine..."
+            info && @info "Design type seems fine..."
         end
     end
 
