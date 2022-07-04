@@ -7,16 +7,19 @@ version = "0.1.0"
 [deps]
 
 CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
-MetidaBase = "075456b7-4006-432f-9324-2f8453996c49"
-Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+MetidaBase = "075456b7-4006-432f-9324-2f8453996c49"
+StatsModels = "3eaba693-59b7-5ba5-a881-562e759f1c8d"
+Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
+
 
 [compat]
 
 CategoricalArrays = "0.8, 0.9, 0.10"
-MetidaBase = "0.5"
-Weave = "0.10"
 JSON = "0.20, 0.21"
+MetidaBase = "0.5"
+StatsModels = "0.6"
+Weave = "0.10"
 julia = "1"
 
 [extras]
@@ -26,4 +29,4 @@ DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = [ "Test", "CSV", "DataFrames"]
+test = [ "CSV", "DataFrames", "Test"]

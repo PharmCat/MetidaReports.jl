@@ -1,6 +1,8 @@
 module MetidaReports
 
-    using StatsModels, DataFrames, Mustache, JSON
+    using DataFrames, Mustache, JSON
+    using MetidaBase
+    using StatsModels
     import Base: ht_keyindex
 
     export htmlexport
