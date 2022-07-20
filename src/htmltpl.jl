@@ -1,5 +1,5 @@
 
-const HTML_H = mt"""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+const HTML_BODY = mt"""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
@@ -7,7 +7,16 @@ const HTML_H = mt"""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN
 <META NAME="GENERATOR" CONTENT="MetidaReports">
 <META NAME="Operator" CONTENT="MetidaReports">
 <STYLE TYPE="text/css">
+{{{:T_CSS}}}
+</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR" leftmargin="40" rightmargin="20" topmargin="20" bottommargin="20">
+{{{:TABLE}}}
+</BODY>
+</HTML>
+"""
 
+const T_CSS = """
 @page { margin-left: 1in; margin-right: 1in; margin-top: 0.5in; margin-bottom: 0.5in }
 P { margin-bottom: 0.08in }
 
@@ -90,12 +99,7 @@ TD.foot {
 border-top: 2.00pt solid #152935;
 border-bottom: 2.00pt solid #152935;
 }
-
-</STYLE>
-</HEAD>
-<BODY LANG="en-US" DIR="LTR" leftmargin="40" rightmargin="20" topmargin="20" bottommargin="20">"""
-
-
+"""
 
 const HTML_F = """</BODY>
 </HTML>"""
@@ -106,13 +110,19 @@ const HTML_PBR ="""<P LANG="en-US" ALIGN=LEFT STYLE="margin-bottom: 0in; line-he
 const HTML_TABLE = mt"""
 <TABLE CELLPADDING=0 CELLSPACING=0>
     <THEAD>
-        {{:THEAD}}
+        <TR CLASS=cell>
+            <TD COLSPAN={{:COLN}} CLASS=title>
+                <P ALIGN=CENTER CLASS=cell>
+                <FONT CLASS=title><B>{{:TITLE}}</B></FONT></P>
+            </TD>
+        </TR>
+        {{{:HEADROW}}}
     </THEAD>
     <TBODY>
-        {{:TBODY}}
+        {{{:TBODY}}}
     </TBODY>
     <TFOOT>
-        {{:TFOOT}}
+        <TR><TD COLSPAN={{:COLN}} class=foot>{{{:FOOTTXT}}} </TD><TR
     </TFOOT>
 </TABLE>
 """

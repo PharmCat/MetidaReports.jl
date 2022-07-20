@@ -7,6 +7,9 @@ module MetidaReports
 
     export htmlexport
 
+    path = dirname(@__FILE__)
+    
+    include("json.jl")
     include("htmltpl.jl")
     include("export.jl")
     include("bioeq.jl")

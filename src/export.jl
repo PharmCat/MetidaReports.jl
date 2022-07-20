@@ -22,23 +22,47 @@ const PK_DICT = Dict(
 :MRTlast => "MRTlast",
 :Kel => "Kel",
 :HL => "HL",
-:Rsq     => "Rsq",
-:AUCinf     => "AUCint",
-:AUCpct     => "AUC%")
+:Rsq     => "R²",
+:ARsq     => "Adjusted R²",
+:Clast_pred     => "Predicted Clast",
+:AUCtau     => "AUC τ",
+:AUCinf     => "AUCinf",
+:AUCpct     => "AUC%",
+:Accind => "Accumulation index",
+:Fluc => "Fluctuation")
 
 
 const STAT_DICT = Dict(
 :mean   => "Mean",
 :sd   => "SD",
+:se   => "SE",
 :median   => "Median",
 :geom   => "Goemtric Mean",
 :min => "Minimum",
 :max => "Maximum",
-:n => "Num",
-:posn     => "Positive Num",
+:n => "N",
+:posn     => "Positive N",
 :cv     => "CV",
 :lci     => "CI Lower",
-:uci     => "CI Upper")
+:uci     => "CI Upper",
+:q1 => "Q1",
+:q3 => "Q3")
+
+const STAT_DICT_RU = Dict(
+:mean   => "Среднее арифметическое",
+:sd   => "Стандартное отклонение",
+:se   => "Стандартная ошибка",
+:median   => "Медиана",
+:geom   => "Среднее геометрическое",
+:min => "Минимум",
+:max => "Максимум",
+:n => "Кол-во",
+:posn     => "Не отриц. кол-во",
+:cv     => "Коэф. вариации",
+:lci     => "ДИ Нижн.",
+:uci     => "ДИ Верхн.",
+:q1 => "Нижн. квартиль",
+:q3 => "Верхн. квартиль")
 
 #ppath = dirname(@__FILE__)
 #cd(ppath)
@@ -113,8 +137,8 @@ HTLM export.
 
 By default sort by first column.
 """
-function htmlexport(data, file; mode = "w", sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
-    out =  htmlexport_(data; sort = sort, nosort = nosort, rspan = rspan, title = title, dict = dict, body = body, missingval = missingval)
+function htmlexport(data, file; mode = "w", kwargs...)
+    out =  htmlexport_(data; kwargs...)
     open(file, mode) do io
         write(io, out)
     end
@@ -128,8 +152,8 @@ end
 HTLM export.
 
 """
-function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false, sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
-    out = htmlexport_(data; sort = sort, nosort = nosort, rspan = rspan, title=title, dict = dict, body = body, missingval = missingval)
+function htmlexport(data; kwargs...)
+    out = htmlexport_(data; kwargs...)
     if isa(io, IO)
         write(io, out)
     end
@@ -137,7 +161,7 @@ function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = fals
     nothing
 end
 
-function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = true, missingval = "")
     rowlist = Array{String,1}(undef, 0)
     cnames  = Symbol.(names(data))
     ###
@@ -185,77 +209,25 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
         dict = PK_DICT
     end
 
-
-    html_f = HTML_F
-    html_pbr = HTML_PBR
     rown        = size(data, 1)
     coln        = size(data, 2)
     tablematrix = zeros(Int, rown, coln)
-    mdict = Dict(:TITLE => title, :COLN => coln)
 
-    out = render(HTML_H, mdict)
-
-    out *= """
-    <TABLE CELLPADDING=0 CELLSPACING=0>
-        <THEAD>
-        <TR CLASS=cell>
-            <TD COLSPAN=$coln CLASS=title>
-                <P ALIGN=CENTER CLASS=cell>
-                <FONT CLASS=title><B> $title </B></FONT></P>
-            </TD>
-        </TR>"""
-
-        out *= """
+    h_row = """
     <TR VALIGN=BOTTOM CLASS=cell>"""
-
-        for c = 1:coln
-            out *= """
+    for c = 1:coln
+        h_row *= """
         <TD CLASS=hcell>
             <P ALIGN=CENTER CLASS=cell>
-            <FONT CLASS=cell> $(dictnames(cnames[c], dict)) </FONT></P>
+                <FONT CLASS=cell> $(dictnames(cnames[c], dict)) </FONT>
+            </P>
         </TD>"""
-        end
-
-        out *= """
-    </TR>
-    </THEAD>
-    <TBODY>"""
+    end
     if !nosort
         sort!(data, sort)
     end
 
-
     tablematrix = make_tablematrix(data)
-    #=
-    tablematrix .= 1
-    for c = 1:coln
-        s = true
-        while s
-            s = false
-            for r = 2:rown
-                if tablematrix[r,c] !=0 && !ismissing(data[r,c]) && !ismissing(data[r-1,c]) && data[r,c] == data[r-1,c]
-                    tablematrix[r,c] -= 1;
-                    tablematrix[r-1,c] += 1;
-                    s = true;
-                end
-            end
-        end
-    end
-    for c = 2:coln
-        for r = 1:rown
-            if tablematrix[r, c] > tablematrix[r, c - 1]
-                for i = 1:tablematrix[r, c] - 1
-                    if tablematrix[r + i, c - 1] > tablematrix[r + i, c]
-                        tablematrix[r + i, c] = tablematrix[r, c] - i
-                        tablematrix[r, c] = i
-                        break
-                    end
-                end
-            end
-        end
-    end
-    =#
-        #print(tablematrix)
 
     for r = 1:rown
         rowstr = ""
@@ -264,24 +236,26 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
                 rowstr *= """
             <TD ROWSPAN=$(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1") VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
                 <P ALIGN=RIGHT CLASS=cell>
-                <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data[r,c], missingval))</SPAN></FONT></P>
+                    <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data[r,c], missingval))</SPAN></FONT>
+                </P>
             </TD>"""
             end
         end
         push!(rowlist, rowstr)
     end
-
+    t_body = ""
     for r in rowlist
-        out *="""
+        t_body *="""
         <TR CLASS=cell> $r
         </TR>"""
     end
 
-    out *= """
-    </TBODY>
-    <TFOOT><TR><TD COLSPAN=$(coln) class=foot> </TD><TR></TFOOT>
-    </TABLE>"""
-    out *= html_f
+    mdict = Dict(:TITLE => title, :COLN => coln, :T_CSS => T_CSS, :HEADROW => h_row, :TBODY => t_body, :FOOTTXT => HTML_PBR)
 
-    out
+    table = render(HTML_TABLE, mdict)
+    if body
+        mdict[:TABLE] = table
+        return render(HTML_BODY, mdict)
+    end
+    table
 end
