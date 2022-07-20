@@ -152,7 +152,7 @@ end
 HTLM export.
 
 """
-function htmlexport(data; kwargs...)
+function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false, kwargs...)
     out = htmlexport_(data; kwargs...)
     if isa(io, IO)
         write(io, out)
