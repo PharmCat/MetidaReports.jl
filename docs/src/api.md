@@ -1,6 +1,10 @@
 
+### MetidaReports.htmlexport
+```@docs
+MetidaReports.htmlexport
+```
 
-[`MetidaReports.htmlexport`](@ref)
-
-
-[`MetidaReports.bioquivalence`](@ref)
+### MetidaReports.bioquivalence
+```@docs
+MetidaReports.bioquivalence
+```

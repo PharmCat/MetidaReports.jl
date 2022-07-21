@@ -27,6 +27,7 @@ const PK_DICT = Dict(
 :Clast_pred     => "Predicted Clast",
 :AUCtau     => "AUC τ",
 :AUCinf     => "AUCinf",
+:AUCinf_pred => "Predicted AUCinf",
 :AUCpct     => "AUC%",
 :Accind => "Accumulation index",
 :Fluc => "Fluctuation")

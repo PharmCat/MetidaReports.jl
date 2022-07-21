@@ -1,0 +1,43 @@
+
+---
+title: Bioequivalence report
+author: MetidaReports
+date: `j import Dates; Dates.Date(Dates.now())`
+---
+
+```julia; echo = false
+using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaReports
+```
+
+
+```julia; echo = false; results = "hidden"
+using MetidaNCA, Pkg
+pkgversion(m::Module) = Pkg.TOML.parsefile(joinpath(dirname(string(first(methods(m.eval)).file)), "..", "Project.toml"))["version"]
+ver = pkgversion(MetidaNCA)
+
+report = WEAVE_ARGS.report
+
+```
+
+MetidaNCA version:
+
+```julia; echo = false; results = "tex"
+ver
+```
+
+Bioequivalence settings:
+
+Subject: `j report.subject`
+
+Treatment: `j report.formulation`
+
+Period: `j report.period`
+
+Sequence: `j report.sequence`
+
+```julia; echo = false; results = "tex"; wrap = false
+
+tab = htmlexport(report.data; io = nothing, strout = true, body = false)
+
+show(tab)
+```

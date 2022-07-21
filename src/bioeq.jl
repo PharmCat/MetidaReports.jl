@@ -13,16 +13,51 @@ struct Bioequivalence
     formulations
     sequences
 end
+
+struct BEReport{Symbol}
+    data
+    vars
+    stats
+    ncasettings
+    design
+    subject
+    period
+    formulation
+    sequence
+    reference
+end
+
+getcol = Tables.getcolumn
+
+function nomissing(data, col)
+    c = Tables.getcolumn(data, col)
+    !any(ismissing, c)
+end
+
+function nomissing(data, cols::AbstractVector)
+    for col in cols
+        !nomissing(data, col) || return false
+    end
+    true
+end
+
 """
     bioquivalence(data;
-    variable = nothing,
+    vars = nothing,
     subject = :subject,
-    period = :period, formulation = :formulation, sequence = :sequence, reference = nothing, design = nothing, io::IO = stdout, seqcheck = true, dropcheck = true)
+    period = :period,
+    formulation = :formulation,
+    sequence = :sequence,
+    reference = nothing,
+    design = nothing,
+    io::IO = stdout,
+    seqcheck = true,
+    dropcheck = true)
 
 
 """
-function bioquivalence(data;
-    variable = nothing,
+function bioequivalence(data;
+    vars = nothing,
     subject = :subject,
     period = :period,
     formulation = :formulation,
@@ -35,23 +70,24 @@ function bioquivalence(data;
     info = true,
     autoseq = false)
 
-    dfnames = Symbol.(names(data))
+
+    dfnames = Symbol.(Tables.columnnames(data))
 
     fac = [subject, formulation]
 
     fac ⊆ dfnames || error("Subject or formulation column not found in dataframe!")
 
-    disallowmissing!(data, subject)
+    nomissing(data, subject) || error("Subject column have missing data")
 
-    disallowmissing!(data, formulation)
+    nomissing(data, formulation) || error("Formulation column have missing data")
 
     obsnum = size(data, 1)
 
-    subjects = unique(data[!, subject])
+    subjects = unique(Tables.getcolumn(data, subject))
 
     subjnum = length(subjects)
 
-    formulations = sort!(unique(data[!, formulation]))
+    formulations = sort!(unique(Tables.getcolumn(data, formulation)))
 
     if isnothing(reference)
         @info "Reference formulation not specified. First used: \"$(first(formulations))\"."
@@ -65,7 +101,7 @@ function bioquivalence(data;
     sequences = nothing
 
     if isnothing(period) && isnothing(sequence) && isnothing(design)
-        length(subjects) == length(data[!, subject]) || error("Trial design seems parallel, but subjects not unique!")
+        length(subjects) == length(Tables.getcolumn(data, subject)) || error("Trial design seems parallel, but subjects not unique!")
         design = :parallel
         println(io, "Parallel desigh used.")
     end
@@ -83,20 +119,22 @@ function bioquivalence(data;
             sequence ∈ dfnames || error("Sequence not found in dataframe!")
         end
 
-        periods = sort!(unique(data[!, period]))
+        periods = sort!(unique(Tables.getcolumn(data, period)))
+
         push!(fac, period)
-        disallowmissing!(data, period)
+
+        nomissing(data, period) || error("Period column have missing data")
 
         if autoseq || seqcheck
             subjdict = Dict()
             for p in periods
                 for i = 1:obsnum
-                    if data[i, period] == p
-                        subj = data[i, subject]
+                    if Tables.getcolumn(data, period)[i] == p
+                        subj = Tables.getcolumn(data, subject)[i]
                         if haskey(subjdict, subj)
-                            subjdict[subj] *= string(data[i, formulation])
+                            subjdict[subj] *= string(getcol(data, formulation)[i])
                         else
-                            subjdict[subj] = string(data[i, formulation])
+                            subjdict[subj] = string(getcol(data, formulation)[i])
                         end
                     end
                 end
@@ -109,25 +147,27 @@ function bioquivalence(data;
             error("Sequence is nothing, but autoseq is false")
         else
             if info && autoseq @info "autoseq is true, but sequence defined - sequence column used" end
-            sequences = unique(data[!, sequence])
+            sequences = unique(getcol(data, sequence))
             push!(fac, sequence)
-            disallowmissing!(data, sequence)
+
+            nomissing(data, sequence) || error("Sequence column have missing data")
         end
 
         if dropcheck
-            if !isnothing(variable) && !all(completecases(data, variable))
+            if !isnothing(vars) && !nomissing(data, vars)
                 dropout = true
-                 @info "Dropuot(s) found in dataframe!"
-            elseif !isnothing(variable)
+                @info "Dropuot(s) found in dataframe!"
+            elseif !isnothing(vars)
                 info && @info "No dropuot(s) found in dataframe!"
                 dropout = false
             end
-
         end
 
         if seqcheck && !isnothing(sequence)
             for i = 1:obsnum
-                if data[i, sequence] != subjdict[data[i, subject]] error("Sequence error or data is incomplete! \n Subject: $(data[i, subject]), Sequence: $(data[i, sequence]), auto: $(subjdict[data[i, subject]])") end
+                if getcol(data, sequence)[i] != subjdict[getcol(data, subject)[i]]
+                    error("Sequence error or data is incomplete! \n Subject: $(getcol(data, subject)[i]), Sequence: $(getcol(data, sequence)[i]), auto: $(subjdict[getcol(data, subject)[i]])")
+                end
             end
             if length(unique(length.(sequences))) > 1
                 error("Some sequence have different length!")
@@ -148,11 +188,6 @@ function bioquivalence(data;
             info && @info "Design type seems fine..."
         end
     end
-
-
-
-
-
     Bioequivalence(
         data,
         design,
@@ -166,4 +201,33 @@ function bioquivalence(data;
         periods,
         formulations,
         sequences)
+end
+
+function bereport(data;
+    type = :conc,
+    vars = [:Cmax, :AUClast],
+    stats = [:n, :posn, :mean, :geom, :sd, :se, :median, :min, :max, :q1, :q3],
+    ncasettings = Dict(:adm => :ev, :calcm => :lint, :intpm => nothing),
+    design = "2X2",
+    subject = :subject,
+    period = :period,
+    formulation = :formulation,
+    sequence = nothing,
+    reference = nothing,
+    )
+    BEReport{type}(data,
+    vars,
+    stats,
+    ncasettings,
+    design,
+    subject,
+    period,
+    formulation,
+    sequence,
+    reference)
+end
+
+
+function writereport(file, report; tpl = tplpath, doctype = "md2html")
+    weave(tpl; out_path = file, args = (report = report,), doctype = doctype)
 end
