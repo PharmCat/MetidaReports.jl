@@ -39,5 +39,5 @@ Sequence: `j report.sequence`
 
 tab = htmlexport(report.data; io = nothing, strout = true, body = false)
 
-show(tab)
+print(tab)
 ```

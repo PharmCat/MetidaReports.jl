@@ -228,6 +228,6 @@ function bereport(data;
 end
 
 
-function writereport(file, report; tpl = tplpath, doctype = "md2html")
+function writereport(file, report; tpl = tplpath, doctype = "md2html", css = csspath)
     weave(tpl; out_path = file, args = (report = report,), doctype = doctype)
 end

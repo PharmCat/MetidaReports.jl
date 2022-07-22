@@ -1,0 +1,3526 @@
+<!DOCTYPE html>
+<HTML lang = "en">
+<HEAD>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Bioequivalence report</title>
+  
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  
+<style>
+pre.hljl {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+    color: rgb(68,68,68); background-color: rgb(251,251,251); }
+pre.hljl > span.hljl-t { }
+pre.hljl > span.hljl-w { }
+pre.hljl > span.hljl-e { }
+pre.hljl > span.hljl-eB { }
+pre.hljl > span.hljl-o { }
+pre.hljl > span.hljl-k { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kc { color: rgb(59,151,46); font-style: italic; }
+pre.hljl > span.hljl-kd { color: rgb(214,102,97); font-style: italic; }
+pre.hljl > span.hljl-kn { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kp { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kr { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kt { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-n { }
+pre.hljl > span.hljl-na { }
+pre.hljl > span.hljl-nb { }
+pre.hljl > span.hljl-nbp { }
+pre.hljl > span.hljl-nc { }
+pre.hljl > span.hljl-ncB { }
+pre.hljl > span.hljl-nd { color: rgb(214,102,97); }
+pre.hljl > span.hljl-ne { }
+pre.hljl > span.hljl-neB { }
+pre.hljl > span.hljl-nf { color: rgb(66,102,213); }
+pre.hljl > span.hljl-nfm { color: rgb(66,102,213); }
+pre.hljl > span.hljl-np { }
+pre.hljl > span.hljl-nl { }
+pre.hljl > span.hljl-nn { }
+pre.hljl > span.hljl-no { }
+pre.hljl > span.hljl-nt { }
+pre.hljl > span.hljl-nv { }
+pre.hljl > span.hljl-nvc { }
+pre.hljl > span.hljl-nvg { }
+pre.hljl > span.hljl-nvi { }
+pre.hljl > span.hljl-nvm { }
+pre.hljl > span.hljl-l { }
+pre.hljl > span.hljl-ld { color: rgb(148,91,176); font-style: italic; }
+pre.hljl > span.hljl-s { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sa { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sb { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sc { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sd { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdC { color: rgb(201,61,57); }
+pre.hljl > span.hljl-se { color: rgb(59,151,46); }
+pre.hljl > span.hljl-sh { color: rgb(201,61,57); }
+pre.hljl > span.hljl-si { }
+pre.hljl > span.hljl-so { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sr { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ss { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ssB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-nB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nbB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nfB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nh { color: rgb(59,151,46); }
+pre.hljl > span.hljl-ni { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nil { color: rgb(59,151,46); }
+pre.hljl > span.hljl-noB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-oB { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-ow { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-p { }
+pre.hljl > span.hljl-c { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-ch { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cm { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cp { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cpB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cs { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-csB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-g { }
+pre.hljl > span.hljl-gd { }
+pre.hljl > span.hljl-ge { }
+pre.hljl > span.hljl-geB { }
+pre.hljl > span.hljl-gh { }
+pre.hljl > span.hljl-gi { }
+pre.hljl > span.hljl-go { }
+pre.hljl > span.hljl-gp { }
+pre.hljl > span.hljl-gs { }
+pre.hljl > span.hljl-gsB { }
+pre.hljl > span.hljl-gt { }
+</style>
+
+
+
+  <style type="text/css">
+  @font-face {
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+}
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  font-family: monospace, monospace;
+  font-size : 0.8em;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+thead th {
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+tr:nth-child(odd){
+  background-color: rgb(248,248,248);
+}
+
+
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 3.6rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.2rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.8rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 2.4rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+p {
+  margin-top: 0; }
+a {
+  color: #1EAEDB; }
+a:hover {
+  color: #0FA0CE; }
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+ul {
+  list-style: circle; }
+ol {
+  list-style: decimal; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li > p {margin : 0;}
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 1.0rem; }
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre.hljl {
+  margin: 0 0 10px;
+  display: block;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding : 5px;
+}
+
+pre.output {
+  background: #ffffff;
+}
+
+pre.code {
+  background: #ffffff;
+}
+
+pre.julia-error {
+  color : red
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+
+@media (min-width: 400px) {}
+@media (min-width: 550px) {}
+@media (min-width: 750px) {}
+@media (min-width: 1000px) {}
+@media (min-width: 1200px) {}
+
+h1.title {margin-top : 20px}
+img {max-width : 100%}
+div.title {text-align: center;}
+
+
+table {
+border-collapse: collapse;
+min-width: 300px;
+width: 100%;
+}
+P.cell {
+ margin-left: 0.04in;
+ margin-right: 0.04in;
+ margin-top: 0.04in;
+ widows: 0;
+ orphans: 0;
+}
+P.pbr {
+margin-bottom: 0in;
+line-height: 0.28in;
+widows: 0;
+orphans: 0;
+}
+TD.title {
+ background-color: #ffffff;
+ border: none;
+ padding: 0in;
+}
+FONT.title {
+ font-size: 9pt;
+ color: #010205;
+ font-family: Arial,serif;
+}
+FONT.cell {
+ font-size: 8pt;
+ color: #010205;
+ font-family: Arial,serif;
+}
+FONT.comment {
+ font-size: 7pt;
+ color: #010205;
+ font-family: Arial,serif;
+}
+
+TR.cell > TD {
+ min-width: 60px;
+ max-width: 100px;
+ padding: 0in;
+ line-height: 8px;
+ text-align: center;
+}
+TR.cell > TD > P{
+ text-align: left;
+}
+TD.cell {
+ /*  background-color: #ffffff; */
+ border-top: 1.00px solid #aeaeae;
+ border-bottom: 1.00px solid #aeaeae;
+ border-left: 1.00px solid #e0e0e0;
+ border-right: 1.00px solid #e0e0e0;
+}
+TD.hcell {
+ background-color: #cccccc;
+ border-top: 1.00px solid #152935;
+ border-bottom: 1.00px solid #152935;
+ border-left: 1.00px solid #152935;
+ border-right: 1.00px solid #152935;
+}
+TD.cell:first-of-type {
+ border-left: 1.00px solid #152935;
+}
+TD.cell:last-of-type {
+ border-right: 1.00px solid #152935;
+}
+TR.cell:last-of-type > TD {
+ border-bottom: 1.00px solid #152935;
+}
+TD.midcell {
+/* background-color: #ffffff; */
+border-top: 1.00px solid #aeaeae;
+border-bottom: 1.00px solid #aeaeae;
+border-left: 1.00px solid #e0e0e0;
+border-right: 1.00px solid #e0e0e0;
+}
+TD.foot {
+border-top: 1.00px solid #152935;
+border-bottom: 1.00px solid #152935;
+}
+  </style>
+</HEAD>
+
+<BODY>
+  <div class ="container">
+    <div class = "row">
+      <div class = "col-md-12 twelve columns">
+        <div class="title">
+          <h1 class="title">Bioequivalence report</h1>
+          <h5>MetidaReports</h5>
+          <h5>2022-07-22</h5>
+        </div>
+
+        
+
+<p>MetidaNCA version:</p>
+
+"0.2.4"
+
+
+<p>Bioequivalence settings:</p>
+<p>Subject: :subject</p>
+<p>Treatment: :formulation</p>
+<p>Period: :period</p>
+<p>Sequence: </p>
+
+<TABLE CELLPADDING=0 CELLSPACING=0>
+    <THEAD>
+        <TR CLASS=cell>
+            <TD COLSPAN=4 CLASS=title>
+                <P ALIGN=CENTER CLASS=cell>
+                <FONT CLASS=title><B>Title</B></FONT></P>
+            </TD>
+        </TR>
+        <TR VALIGN=BOTTOM CLASS=cell><TD CLASS=hcell>
+    <P ALIGN=CENTER CLASS=cell>
+        <FONT CLASS=cell> Subject </FONT>
+    </P>
+</TD><TD CLASS=hcell>
+    <P ALIGN=CENTER CLASS=cell>
+        <FONT CLASS=cell> Formulation </FONT>
+    </P>
+</TD><TD CLASS=hcell>
+    <P ALIGN=CENTER CLASS=cell>
+        <FONT CLASS=cell> Time </FONT>
+    </P>
+</TD><TD CLASS=hcell>
+    <P ALIGN=CENTER CLASS=cell>
+        <FONT CLASS=cell> Concentration </FONT>
+    </P>
+</TD>
+    </THEAD>
+    <TBODY>
+        <TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">178.949</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">190.869</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">164.927</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">139.962</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">129.59</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">131.369</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">150.854</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">121.239</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">139.229</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">128.52</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">143.243</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">144.964</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">133.16</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">137.271</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">112.846</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">62.222</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">261.177</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">234.063</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">234.091</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">222.881</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">213.896</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">196.026</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">199.634</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">196.037</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">213.352</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">200.088</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">196.035</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">160.338</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">110.28</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">85.241</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">49.849</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">77.367</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">105.345</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">100.943</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.746</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">69.985</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">93.565</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">91.981</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">82.71</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">84.205</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">85.342</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">76.027</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">81.259</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">70.107</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">67.901</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">52.421</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">208.542</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">188.923</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">165.177</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">146.996</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">152.701</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">154.345</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">128.398</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">149.807</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">151.066</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">136.819</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">132.257</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">141.247</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">129.138</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">97.625</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9.545</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">153.964</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">152.34</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">151.452</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">161.312</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">169.334</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">162.907</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">166.651</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">168.668</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">155.103</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">154.066</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">162.974</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">109.814</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">110.778</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">57.882</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">100.498</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">138.651</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">147.287</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">154.648</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">122.316</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">132.857</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">126.067</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">140.466</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">115.542</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">102.16</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">113.751</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">101.049</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">92.55</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">69.501</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">19.95</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">128.405</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">136.807</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">113.109</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">153.254</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">123.606</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">142.655</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">112.347</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">139.919</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">105.513</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">134.408</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">123.37</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">110.511</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">90.291</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">7</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">58.051</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">136.91</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">126.646</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">118.5</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">134.926</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">113.213</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">130.896</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">138.327</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">22.724</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">53.774</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">55.107</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">102.871</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">134.133</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">108.021</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">98.466</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">74.437</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">113.362</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">128.273</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">125.395</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">146.933</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">140.559</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">167.347</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">157.504</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">141.35</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">140.282</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">105.438</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">164.843</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">135.58</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">117.125</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">109.745</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">9</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">T</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">93.44</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.0</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">0.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">13.634</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">62.561</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">1.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">112.655</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">125.482</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">2.5</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">116.255</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">3.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">112.674</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">4.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">116.986</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">5.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">119.81</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">6.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">107.557</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">8.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">120.479</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">124.171</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">12.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">106.476</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">24.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">116.508</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">48.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">45.204</SPAN></FONT>
+    </P>
+</TD>
+</TR><TR CLASS=cell> <TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">10</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">R</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="midcell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">72.0</SPAN></FONT>
+    </P>
+</TD><TD ROWSPAN=1 VALIGN=TOP CLASS="cell">
+    <P ALIGN=RIGHT CLASS=cell>
+        <FONT CLASS=cell><SPAN LANG="en-US">42.191</SPAN></FONT>
+    </P>
+</TD>
+</TR>
+    </TBODY>
+    <TFOOT>
+        <TR><TD COLSPAN=4 class=foot><P LANG="en-US" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 0.28in; widows: 0; orphans: 0"><BR></P> </TD><TR
+    </TFOOT>
+</TABLE>
+
+
+
+        <HR/>
+        <div class="footer">
+          <p>
+            Published from <a href="report.jmd">report.jmd</a>
+            using <a href="http://github.com/JunoLab/Weave.jl">Weave.jl</a> v0.10.10 on 2022-07-22.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BODY>
+
+</HTML>

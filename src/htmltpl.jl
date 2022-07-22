@@ -108,7 +108,7 @@ const HTML_PBR ="""<P LANG="en-US" ALIGN=LEFT STYLE="margin-bottom: 0in; line-he
 
 
 const HTML_TABLE = mt"""
-<TABLE CELLPADDING=0 CELLSPACING=0>
+<TABLE CELLPADDING=0 CELLSPACING=0 CLASS=mr_table>
     <THEAD>
         <TR CLASS=cell>
             <TD COLSPAN={{:COLN}} CLASS=title>

@@ -1,6 +1,6 @@
 module MetidaReports
 
-    using DataFrames, Mustache, JSON
+    using DataFrames, Mustache, JSON, Weave
     using MetidaBase
     using StatsModels
     import MetidaBase: Tables
@@ -11,6 +11,8 @@ module MetidaReports
     path = dirname(@__FILE__)
 
     tplpath = joinpath(path, "jmd", "report.jmd")
+
+    csspath = joinpath(path, "css", "main.css")
 
     include("json.jl")
     include("htmltpl.jl")

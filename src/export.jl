@@ -158,7 +158,7 @@ function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = fals
     if isa(io, IO)
         write(io, out)
     end
-    if strout return out end
+    if strout || isnothing(io) return out end
     nothing
 end
 
