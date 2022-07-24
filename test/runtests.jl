@@ -19,7 +19,7 @@ io       = IOBuffer();
     # DataFrame
     be = MetidaReports.bioequivalence(ds; vars = nothing, subject = :subject,
     period = :period, formulation = :treatment,
-    sequence = :sequence, design = Symbol("2x2x4"))
+    sequence = :sequence, design = "2x2x4")
     # TypedTable
     be = MetidaReports.bioequivalence(tab; vars = nothing, subject = :subject,
     period = :period, formulation = :treatment,
@@ -30,9 +30,10 @@ io       = IOBuffer();
     autoseq = true)
 
     ber = MetidaReports.bereport(pk)
+    
     str = MetidaReports.htmlexport(ber.data; io = nothing, body = false)
 
-    #MetidaReports.writereport(path, ber)
+    MetidaReports.writereport(path, ber)
     @test true
 
 end

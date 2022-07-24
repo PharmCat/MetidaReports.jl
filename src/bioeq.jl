@@ -16,7 +16,10 @@ end
 
 struct BEReport{Symbol}
     data
+    pktime
+    pkconc
     vars
+    pkvars
     stats
     ncasettings
     design
@@ -70,6 +73,8 @@ function bioequivalence(data;
     info = true,
     autoseq = false)
 
+    if isa(design, Symbol) design = string(design) end
+    if isa(design, String) && design != "parallel" design = uppercase(design) end
 
     dfnames = Symbol.(Tables.columnnames(data))
 
@@ -102,12 +107,12 @@ function bioequivalence(data;
 
     if isnothing(period) && isnothing(sequence) && isnothing(design)
         length(subjects) == length(Tables.getcolumn(data, subject)) || error("Trial design seems parallel, but subjects not unique!")
-        design = :parallel
+        design = "parallel"
         println(io, "Parallel desigh used.")
     end
 
 
-    if isnothing(design) || design != :parallel
+    if isnothing(design) || design != "parallel"
 
         !isnothing(period) || error("Trial design seems NOT parallel, but period is nothing")
 
@@ -180,8 +185,8 @@ function bioequivalence(data;
             design = Symbol("$(length(formulations))X$(length(sequences))X$(length(periods))")
             @info  "Seems design type is: $design"
         else
-            spldes = split(uppercase(string(design)), "X")
-            if length(spldes) != 3 &&  uppercase(string(design)) != "2X2" error("Unknown design type. Use fXsXp format or \"2Х2\".") end
+            spldes = split(design, "X")
+            if length(spldes) != 3 && design != "2X2" error("Unknown design type. Use fXsXp format or \"2Х2\".") end
             if length(formulations) != parse(Int, spldes[1]) error("Design error: formulations count wrong!") end
             if length(sequences) != parse(Int, spldes[2]) error("Design error: sequences count wrong!") end
             if length(periods) != parse(Int, spldes[3]) error("Design error: periods count wrong!") end
@@ -205,18 +210,35 @@ end
 
 function bereport(data;
     type = :conc,
+    pktime = :Time,
+    pkconc = :Concentration,
     vars = [:Cmax, :AUClast],
+    pkvars = [:Cmax, :AUClast, :Tmax, :Kel, :HL, :MRTlast, :AUCinf, :AUCpct],
     stats = [:n, :posn, :mean, :geom, :sd, :se, :median, :min, :max, :q1, :q3],
     ncasettings = Dict(:adm => :ev, :calcm => :lint, :intpm => nothing),
-    design = "2X2",
-    subject = :subject,
-    period = :period,
-    formulation = :formulation,
+    design = nothing,
+    subject = :Subject,
+    period = nothing,
+    formulation = :Formulation,
     sequence = nothing,
-    reference = nothing,
+    reference = nothing
     )
+
+    dfnames = Symbol.(Tables.columnnames(data))
+
+    if type == :conc
+        #∉
+        pktime ∈ dfnames || error("No time" )
+        pkconc ∈ dfnames || error("No concentration")
+        subject ∈ dfnames || error("No subject" )
+        formulation ∈ dfnames || error("No formulation" )
+    end
+
     BEReport{type}(data,
+    pktime,
+    pkconc,
     vars,
+    pkvars,
     stats,
     ncasettings,
     design,
@@ -228,6 +250,59 @@ function bereport(data;
 end
 
 
-function writereport(file, report; tpl = tplpath, doctype = "md2html", css = csspath)
-    weave(tpl; out_path = file, args = (report = report,), doctype = doctype)
+function writereport(file, report::BEReport{:conc};
+    tpl = tplpath,
+    doctype = "md2html",
+    css = csspath,
+    seqcheck = true,
+    dropcheck = true,
+    info = true,
+    io = stdout,
+    autoseq = false)
+
+    sort = [report.subject, report.formulation]
+
+    isnothing(report.period) || push!(sort, report.period)
+    isnothing(report.sequence) || push!(sort, report.sequence)
+
+    nca_obj = nca(report.data, report.pktime, report.pkconc, sort; report.ncasettings...)
+
+    nca_df = DataFrame(metida_table(nca_obj))
+
+    sort!(nca_df, [report.formulation, report.subject])
+
+    beobj = bioequivalence(nca_df, vars = report.vars,
+    subject = report.subject,
+    period = report.period,
+    formulation = report.formulation,
+    sequence = report.sequence,
+    reference = report.reference,
+    design = report.design,
+    io = io,
+    seqcheck = seqcheck,
+    dropcheck = dropcheck,
+    info = info,
+    autoseq = autoseq)
+
+    nca_ds = descriptives(nca_df, vars = report.pkvars, sort = report.formulation, skipmissing = true, skipnonpositive = true)
+
+    conc_ds = descriptives(report.data, vars = report.pkconc, sort = [report.pktime, report.formulation], stats = [:mean, :lmeanci, :umeanci], skipmissing = true, skipnonpositive = true)
+
+    nca_ds_df = metida_table(nca_ds)
+
+    olsdict = Dict()
+
+
+    for i in report.vars
+        if beobj.design == "parallel"
+            mform = @eval @formula($i ~ $(report.formulation))
+            olsdict[i] = fit(LinearModel, mform, nca_df; dropcollinear = true, contrasts = Dict(:formulation => DummyCoding(base = beobj.reference)))
+        elseif beobj.design == "2X2"
+
+        end
+    end
+
+    be_df = DataFrame(param = [], pe = [], lci = [], uci = [], cv = [])
+
+    weave(tpl; out_path = file, args = (report = report, beobj = beobj, df = [nca_df[:, append!([report.formulation, report.subject], report.pkvars)], nca_ds_df], olsdict = olsdict), doctype = doctype)
 end

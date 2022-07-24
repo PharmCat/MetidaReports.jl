@@ -1,7 +1,7 @@
 module MetidaReports
 
-    using DataFrames, Mustache, JSON, Weave
-    using MetidaBase
+    using DataFrames, Mustache, JSON, Weave, GLM, RegressionTables
+    using MetidaBase, MetidaNCA, MetidaStats
     using StatsModels
     import MetidaBase: Tables
     import Base: ht_keyindex

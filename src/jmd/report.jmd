@@ -6,7 +6,7 @@ date: `j import Dates; Dates.Date(Dates.now())`
 ---
 
 ```julia; echo = false
-using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaReports
+using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaNCA, MetidaReports, RegressionTables
 ```
 
 
@@ -14,8 +14,10 @@ using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaReports
 using MetidaNCA, Pkg
 pkgversion(m::Module) = Pkg.TOML.parsefile(joinpath(dirname(string(first(methods(m.eval)).file)), "..", "Project.toml"))["version"]
 ver = pkgversion(MetidaNCA)
-
 report = WEAVE_ARGS.report
+beobj = WEAVE_ARGS.beobj
+df = WEAVE_ARGS.df
+olsdict = WEAVE_ARGS.olsdict
 
 ```
 
@@ -37,7 +39,41 @@ Sequence: `j report.sequence`
 
 ```julia; echo = false; results = "tex"; wrap = false
 
-tab = htmlexport(report.data; io = nothing, strout = true, body = false)
+#tab = htmlexport(report.data; io = nothing, strout = true, body = false)
+#print(tab)
+```
+
+## Parameters
+
+```julia; echo = false; results = "tex"; wrap = false
+
+tab = htmlexport(df[1]; io = nothing, strout = true, body = false, title = "Parameters", rspan = [report.formulation], dict = :pk)
 
 print(tab)
+```
+
+## Descriptives
+
+```julia; echo = false; results = "tex"; wrap = false
+
+tab = htmlexport(df[2]; io = nothing, strout = true, body = false, title = "Descriptives", rspan = [report.formulation], dict = MetidaReports.STAT_DICT)
+
+print(tab)
+```
+
+## Bioequivalence
+
+
+## Stats
+
+```julia; echo = false; wrap = false; results = "tex"
+#=
+for (k,v) in olsdict
+  println("###", k)
+  println("")
+  println(v)
+  println("")
+end
+=#
+regtable(olsdict...; regression_statistics = [:nobs], print_estimator_section = false, renderSettings = htmlOutput(), regressors = coefnames(first(olsdict))[1:2])
 ```
