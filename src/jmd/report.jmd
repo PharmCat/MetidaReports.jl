@@ -6,7 +6,7 @@ date: `j import Dates; Dates.Date(Dates.now())`
 ---
 
 ```julia; echo = false
-using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaNCA, MetidaReports, RegressionTables
+using Dates, DataFrames, CSV, PrettyTables, Latexify, MetidaNCA, MetidaReports, RegressionTables, StatsBase
 ```
 
 
@@ -75,5 +75,7 @@ for (k,v) in olsdict
   println("")
 end
 =#
-regtable(olsdict...; regression_statistics = [:nobs], print_estimator_section = false, renderSettings = htmlOutput(), regressors = coefnames(first(olsdict))[1:2])
+regtable(values(olsdict)...; regression_statistics = [:nobs], print_estimator_section = false, renderSettings = htmlOutput(), regressors = coefnames(first(values(olsdict)))[1:2])
+
+println("<p>* p<0.05, ** p<0.01, *** p<0.001</p>")
 ```

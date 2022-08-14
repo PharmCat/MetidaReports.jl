@@ -284,7 +284,7 @@ function writereport(file, report::BEReport{:conc};
     info = info,
     autoseq = autoseq)
 
-    nca_ds = descriptives(nca_df, vars = report.pkvars, sort = report.formulation, skipmissing = true, skipnonpositive = true)
+    nca_ds = descriptives(nca_df, vars = report.pkvars, sort = report.formulation, stats = report.stats, skipmissing = true, skipnonpositive = true)
 
     conc_ds = descriptives(report.data, vars = report.pkconc, sort = [report.pktime, report.formulation], stats = [:mean, :lmeanci, :umeanci], skipmissing = true, skipnonpositive = true)
 
@@ -304,5 +304,10 @@ function writereport(file, report::BEReport{:conc};
 
     be_df = DataFrame(param = [], pe = [], lci = [], uci = [], cv = [])
 
-    weave(tpl; out_path = file, args = (report = report, beobj = beobj, df = [nca_df[:, append!([report.formulation, report.subject], report.pkvars)], nca_ds_df], olsdict = olsdict), doctype = doctype)
+    weave(tpl; out_path = file,
+        args = (report = report,
+            beobj = beobj,
+            df = [nca_df[:, append!([report.formulation, report.subject], report.pkvars)], nca_ds_df[:, append!([report.formulation, :Variable], report.stats)]],
+            olsdict = olsdict),
+        doctype = doctype)
 end
