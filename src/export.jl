@@ -1,4 +1,9 @@
 
+struct MRFormat{R, C}
+    r::R
+    c::C
+    f::Function
+end
 
 
 const PD_DICT = Dict(
@@ -47,7 +52,11 @@ const STAT_DICT = Dict(
 :lci     => "CI Lower",
 :uci     => "CI Upper",
 :q1 => "Q1",
-:q3 => "Q3")
+:q3 => "Q3"
+:iqr => "Interquartile range",
+:umeanci => "Mean CI Lower",
+:lmeanci => "Mean CI Upper",
+:geocv => "CV(Geo)")
 
 const STAT_DICT_RU = Dict(
 :mean   => "Среднее арифметическое",
@@ -63,7 +72,11 @@ const STAT_DICT_RU = Dict(
 :lci     => "ДИ Нижн.",
 :uci     => "ДИ Верхн.",
 :q1 => "Нижн. квартиль",
-:q3 => "Верхн. квартиль")
+:q3 => "Верхн. квартиль",
+:iqr => "Интерквартильный размах",
+:umeanci => "ДИ для среднего Верхн.",
+:lmeanci => "ДИ для среднего Нижн.",
+:geocv => "CV(Geo)")
 
 #ppath = dirname(@__FILE__)
 #cd(ppath)
@@ -78,7 +91,7 @@ function dictnames(name::Any, dict::Union{Symbol, Dict})
     if !(typeof(name) <: eltype(dlist)) return name end
     if name in dlist return dict[name] else return name end
 end
-
+#=
 function cellformat(val, missingval)
     if val === missing return missingval end
     if val === NaN return "NaN" end
@@ -89,6 +102,34 @@ function cellformat(val, missingval)
         return val
     end
 end
+=#
+function cellformat(data, missingval, r, c, ::Nothing)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    if isa(val, AbstractFloat)
+        return round(val, digits=3)
+    else
+        return val
+    end
+end
+function cellformat(data, missingval, r, c, format)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    if isa(val, AbstractFloat)
+        return round(val, digits=3)
+    else
+        if r in format.r && c in format.c
+            return format.f(val)
+        else
+            return val
+        end
+    end
+end
+
 #
 #
 # Make span matrix
@@ -162,7 +203,16 @@ function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = fals
     nothing
 end
 
-function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = true, missingval = "")
+function htmlexport_(data; 
+    sort = nothing, 
+    nosort = false, 
+    rspan = nothing, 
+    title="Title", 
+    dict::Union{Symbol, Dict} = :undef, 
+    format = nothing, 
+    body = true, 
+    missingval = "")
+
     rowlist = Array{String,1}(undef, 0)
     cnames  = Symbol.(names(data))
     ###
@@ -210,6 +260,7 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
         dict = PK_DICT
     end
 
+
     rown        = size(data, 1)
     coln        = size(data, 2)
     tablematrix = zeros(Int, rown, coln)
@@ -237,7 +288,7 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
                 rowstr *= """
             <TD ROWSPAN=$(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1") VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
                 <P ALIGN=RIGHT CLASS=cell>
-                    <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data[r,c], missingval))</SPAN></FONT>
+                    <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data, missingval, r, c, format))</SPAN></FONT>
                 </P>
             </TD>"""
             end
