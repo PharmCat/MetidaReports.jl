@@ -52,7 +52,7 @@ const STAT_DICT = Dict(
 :lci     => "CI Lower",
 :uci     => "CI Upper",
 :q1 => "Q1",
-:q3 => "Q3"
+:q3 => "Q3",
 :iqr => "Interquartile range",
 :umeanci => "Mean CI Lower",
 :lmeanci => "Mean CI Upper",
@@ -310,4 +310,70 @@ function htmlexport_(data;
         return render(HTML_BODY, mdict)
     end
     table
+end
+
+
+function htmlexport_(data::ConTab; title = "Title", body = true)
+
+    rowlist = Array{String, 1}(undef, 0)
+
+    row_n = copy(data.coln)
+    pushfirst!(row_n, "")
+    push!(row_n, "Total")
+    h_row = """
+    <TR VALIGN=BOTTOM CLASS=cell>"""
+    for c in row_n
+        h_row *= """
+        <TD CLASS=hcell>
+            <P ALIGN=CENTER CLASS=cell>
+                <FONT CLASS=cell> $c </FONT>
+            </P>
+        </TD>"""
+    end
+
+    tab  = hcat(data.tab, sum(data.tab, dims = 2))
+    tab  = hcat(data.rown, tab)
+    rown        = size(tab, 1)
+    coln        = size(tab, 2)
+    for r = 1:rown
+        rowstr = ""
+        for c = 1:coln
+            rowstr *= """
+            <TD VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
+                <P ALIGN=RIGHT CLASS=cell>
+                    <FONT CLASS=cell><SPAN LANG="en-US">$(tab[r,c])</SPAN></FONT>
+                </P>
+            </TD>"""
+        end
+        push!(rowlist, rowstr)
+    end
+    t_body = ""
+    for r in rowlist
+        t_body *="""
+        <TR CLASS=cell> $r
+        </TR>"""
+    end
+    foottxt = ""
+    if haskey(data.id, :ColName) foottxt *= string(data.id[:ColName]) end
+    mdict = Dict(:TITLE => title, :COLN => size(data.tab, 2) + 2, :T_CSS => T_CSS, :HEADROW => h_row, :TBODY => t_body, :FOOTTXT => foottxt)
+    table = render(HTML_TABLE, mdict)
+    if body
+        mdict[:TABLE] = table
+        return render(HTML_BODY, mdict)
+    end
+    table
+end
+
+
+function htmlexport_(data::DataSet; title="Title", body = true)
+    tables = ""
+    for i in getdata(data)
+        tables *= htmlexport_(i; title = "", body = false) * "\n"
+    end
+    mdict = Dict(:TITLE => title, :T_CSS => T_CSS)
+    if body
+        mdict[:TABLE] = tables
+        return render(HTML_BODY, mdict)
+    end
+    tables
 end

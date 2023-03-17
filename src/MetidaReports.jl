@@ -1,10 +1,11 @@
 module MetidaReports
 
     using DataFrames, Mustache, JSON, Weave, GLM#, RegressionTables
-    using MetidaBase, MetidaNCA#, MetidaStats
+    using MetidaBase, MetidaNCA, MetidaFreq#, MetidaStats
     using StatsModels
-    import MetidaBase: Tables
+    import MetidaBase: Tables, DataSet, getdata
     import Base: ht_keyindex
+    import MetidaFreq: ConTab
 
     export htmlexport
 

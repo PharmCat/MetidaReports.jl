@@ -1,4 +1,4 @@
-
+#=
 struct Bioequivalence
     data
     design
@@ -311,3 +311,4 @@ function writereport(file, report::BEReport{:conc};
             olsdict = olsdict),
         doctype = doctype)
 end
+=#
