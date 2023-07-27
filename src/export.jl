@@ -179,7 +179,7 @@ HTLM export.
 
 By default sort by first column.
 """
-function htmlexport(data, file; mode = "w", kwargs...)
+function htmlexport(data, file::AbstractString; mode = "w", kwargs...)
     out =  htmlexport_(data; kwargs...)
     open(file, mode) do io
         write(io, out)
@@ -312,11 +312,10 @@ function htmlexport_(data;
     table
 end
 
-
+#=
 function htmlexport_(data::ConTab; title = "Title", body = true)
 
     rowlist = Array{String, 1}(undef, 0)
-
     row_n = copy(data.coln)
     pushfirst!(row_n, "")
     push!(row_n, "Total")
@@ -363,8 +362,8 @@ function htmlexport_(data::ConTab; title = "Title", body = true)
     end
     table
 end
-
-
+=#
+#=
 function htmlexport_(data::DataSet; title="Title", body = true)
     tables = ""
     for i in getdata(data)
@@ -377,3 +376,4 @@ function htmlexport_(data::DataSet; title="Title", body = true)
     end
     tables
 end
+=#
