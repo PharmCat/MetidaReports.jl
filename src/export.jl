@@ -1,10 +1,10 @@
-
+#=
 struct MRFormat{R, C}
     r::R
     c::C
     f::Function
 end
-
+=#
 
 const PD_DICT = Dict(
 :AUCABL   => "AUC above BL",
@@ -114,20 +114,40 @@ function cellformat(data, missingval, r, c, ::Nothing)
         return val
     end
 end
-function cellformat(data, missingval, r, c, format)
+
+function cellformat(data, missingval, r, c, digits::Int = 3)
     val = data[r, c]
     if val === missing return missingval end
     if val === NaN return "NaN" end
     if val === nothing return missingval end
     if isa(val, AbstractFloat)
-        return round(val, digits=3)
+        return round(val, digits=digits)
     else
-        if r in format.r && c in format.c
-            return format.f(val)
-        else
-            return val
-        end
+        return val
     end
+end
+
+function cellformat(data, missingval, r, c, format::String)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    try
+        return Printf.format(Printf.Format(format), val)
+    catch
+        return val
+    end
+
+    if isa(val, AbstractFloat)
+        return round(val, digits=digits)
+    else
+        return val
+    end
+end
+
+function cellformat(data, missingval, r, c, format::Function)
+    val = data[r, c]
+    return(format(r, c, val))
 end
 
 #
@@ -189,9 +209,19 @@ end
 """
     htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false,
         sort = nothing, nosort = false, rspan = nothing, title="Title",
-        dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+        dict::Union{Symbol, Dict} = :undef, format = nothing, body = false, missingval = "")
 
 HTLM export.
+
+* `sort`
+* `nosort`
+* `rspan`
+* `title`
+* `dict` 
+* `format` - try to apply format to cells: if `nothing` try to round AbstractFloat to 3 digits, if String try to apply format with @sprintf, 
+if Function return result of function `f(r,c,v)`, where r - row, c - column, v - cell value; 
+* `body`
+* `missingval`
 
 """
 function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false, kwargs...)
