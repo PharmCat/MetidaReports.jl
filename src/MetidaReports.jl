@@ -1,10 +1,12 @@
 module MetidaReports
 
-    using DataFrames, Mustache, JSON, Weave, GLM, RegressionTables
-    using MetidaBase, MetidaNCA, MetidaStats
-    using StatsModels
-    import MetidaBase: Tables
+    using DataFrames, JSON, Mustache
+    #using Mustache, JSON, Weave, GLM#, RegressionTables
+    #using MetidaBase, MetidaNCA, MetidaFreq#, MetidaStats
+    #using StatsModels
+    #import MetidaBase: Tables, DataSet, getdata
     import Base: ht_keyindex
+    #import MetidaFreq: ConTab
 
     export htmlexport
 
@@ -17,6 +19,6 @@ module MetidaReports
     include("json.jl")
     include("htmltpl.jl")
     include("export.jl")
-    include("bioeq.jl")
+    #include("bioeq.jl")
 
 end # module

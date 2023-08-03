@@ -1,5 +1,10 @@
-
-
+#=
+struct MRFormat{R, C}
+    r::R
+    c::C
+    f::Function
+end
+=#
 
 const PD_DICT = Dict(
 :AUCABL   => "AUC above BL",
@@ -47,7 +52,11 @@ const STAT_DICT = Dict(
 :lci     => "CI Lower",
 :uci     => "CI Upper",
 :q1 => "Q1",
-:q3 => "Q3")
+:q3 => "Q3",
+:iqr => "Interquartile range",
+:umeanci => "Mean CI Lower",
+:lmeanci => "Mean CI Upper",
+:geocv => "CV(Geo)")
 
 const STAT_DICT_RU = Dict(
 :mean   => "Среднее арифметическое",
@@ -63,7 +72,11 @@ const STAT_DICT_RU = Dict(
 :lci     => "ДИ Нижн.",
 :uci     => "ДИ Верхн.",
 :q1 => "Нижн. квартиль",
-:q3 => "Верхн. квартиль")
+:q3 => "Верхн. квартиль",
+:iqr => "Интерквартильный размах",
+:umeanci => "ДИ для среднего Верхн.",
+:lmeanci => "ДИ для среднего Нижн.",
+:geocv => "CV(Geo)")
 
 #ppath = dirname(@__FILE__)
 #cd(ppath)
@@ -78,7 +91,7 @@ function dictnames(name::Any, dict::Union{Symbol, Dict})
     if !(typeof(name) <: eltype(dlist)) return name end
     if name in dlist return dict[name] else return name end
 end
-
+#=
 function cellformat(val, missingval)
     if val === missing return missingval end
     if val === NaN return "NaN" end
@@ -89,6 +102,54 @@ function cellformat(val, missingval)
         return val
     end
 end
+=#
+function cellformat(data, missingval, r, c, ::Nothing)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    if isa(val, AbstractFloat)
+        return round(val, digits=3)
+    else
+        return val
+    end
+end
+
+function cellformat(data, missingval, r, c, digits::Int = 3)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    if isa(val, AbstractFloat)
+        return round(val, digits=digits)
+    else
+        return val
+    end
+end
+
+function cellformat(data, missingval, r, c, format::String)
+    val = data[r, c]
+    if val === missing return missingval end
+    if val === NaN return "NaN" end
+    if val === nothing return missingval end
+    try
+        return Printf.format(Printf.Format(format), val)
+    catch
+        return val
+    end
+
+    if isa(val, AbstractFloat)
+        return round(val, digits=digits)
+    else
+        return val
+    end
+end
+
+function cellformat(data, missingval, r, c, format::Function)
+    val = data[r, c]
+    return(format(r, c, val))
+end
+
 #
 #
 # Make span matrix
@@ -138,7 +199,7 @@ HTLM export.
 
 By default sort by first column.
 """
-function htmlexport(data, file; mode = "w", kwargs...)
+function htmlexport(data, file::AbstractString; mode = "w", kwargs...)
     out =  htmlexport_(data; kwargs...)
     open(file, mode) do io
         write(io, out)
@@ -148,9 +209,19 @@ end
 """
     htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false,
         sort = nothing, nosort = false, rspan = nothing, title="Title",
-        dict::Union{Symbol, Dict} = :undef, body = false, missingval = "")
+        dict::Union{Symbol, Dict} = :undef, format = nothing, body = false, missingval = "")
 
 HTLM export.
+
+* `sort`
+* `nosort`
+* `rspan`
+* `title`
+* `dict` 
+* `format` - try to apply format to cells: if `nothing` try to round AbstractFloat to 3 digits, if String try to apply format with @sprintf, 
+if Function return result of function `f(r,c,v)`, where r - row, c - column, v - cell value; 
+* `body`
+* `missingval`
 
 """
 function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = false, kwargs...)
@@ -162,7 +233,16 @@ function htmlexport(data; io::Union{IO, Nothing, String} = stdout, strout = fals
     nothing
 end
 
-function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, title="Title", dict::Union{Symbol, Dict} = :undef, body = true, missingval = "")
+function htmlexport_(data; 
+    sort = nothing, 
+    nosort = false, 
+    rspan = nothing, 
+    title="Title", 
+    dict::Union{Symbol, Dict} = :undef, 
+    format = nothing, 
+    body = true, 
+    missingval = "")
+
     rowlist = Array{String,1}(undef, 0)
     cnames  = Symbol.(names(data))
     ###
@@ -210,6 +290,7 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
         dict = PK_DICT
     end
 
+
     rown        = size(data, 1)
     coln        = size(data, 2)
     tablematrix = zeros(Int, rown, coln)
@@ -237,7 +318,7 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
                 rowstr *= """
             <TD ROWSPAN=$(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1") VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
                 <P ALIGN=RIGHT CLASS=cell>
-                    <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data[r,c], missingval))</SPAN></FONT>
+                    <FONT CLASS=cell><SPAN LANG="en-US">$(cellformat(data, missingval, r, c, format))</SPAN></FONT>
                 </P>
             </TD>"""
             end
@@ -260,3 +341,69 @@ function htmlexport_(data; sort = nothing, nosort = false, rspan = nothing, titl
     end
     table
 end
+
+#=
+function htmlexport_(data::ConTab; title = "Title", body = true)
+
+    rowlist = Array{String, 1}(undef, 0)
+    row_n = copy(data.coln)
+    pushfirst!(row_n, "")
+    push!(row_n, "Total")
+    h_row = """
+    <TR VALIGN=BOTTOM CLASS=cell>"""
+    for c in row_n
+        h_row *= """
+        <TD CLASS=hcell>
+            <P ALIGN=CENTER CLASS=cell>
+                <FONT CLASS=cell> $c </FONT>
+            </P>
+        </TD>"""
+    end
+
+    tab  = hcat(data.tab, sum(data.tab, dims = 2))
+    tab  = hcat(data.rown, tab)
+    rown        = size(tab, 1)
+    coln        = size(tab, 2)
+    for r = 1:rown
+        rowstr = ""
+        for c = 1:coln
+            rowstr *= """
+            <TD VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
+                <P ALIGN=RIGHT CLASS=cell>
+                    <FONT CLASS=cell><SPAN LANG="en-US">$(tab[r,c])</SPAN></FONT>
+                </P>
+            </TD>"""
+        end
+        push!(rowlist, rowstr)
+    end
+    t_body = ""
+    for r in rowlist
+        t_body *="""
+        <TR CLASS=cell> $r
+        </TR>"""
+    end
+    foottxt = ""
+    if haskey(data.id, :ColName) foottxt *= string(data.id[:ColName]) end
+    mdict = Dict(:TITLE => title, :COLN => size(data.tab, 2) + 2, :T_CSS => T_CSS, :HEADROW => h_row, :TBODY => t_body, :FOOTTXT => foottxt)
+    table = render(HTML_TABLE, mdict)
+    if body
+        mdict[:TABLE] = table
+        return render(HTML_BODY, mdict)
+    end
+    table
+end
+=#
+#=
+function htmlexport_(data::DataSet; title="Title", body = true)
+    tables = ""
+    for i in getdata(data)
+        tables *= htmlexport_(i; title = "", body = false) * "\n"
+    end
+    mdict = Dict(:TITLE => title, :T_CSS => T_CSS)
+    if body
+        mdict[:TABLE] = tables
+        return render(HTML_BODY, mdict)
+    end
+    tables
+end
+=#
