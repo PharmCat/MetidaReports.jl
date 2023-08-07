@@ -1,6 +1,6 @@
 module MetidaReports
 
-    using DataFrames, JSON, Mustache
+    using DataFrames, JSON, Mustache, Printf
     #using Mustache, JSON, Weave, GLM#, RegressionTables
     #using MetidaBase, MetidaNCA, MetidaFreq#, MetidaStats
     #using StatsModels
