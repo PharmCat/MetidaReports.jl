@@ -307,7 +307,7 @@ function htmlexport_(data;
         </TD>"""
     end
     if !nosort
-        sort!(data, sort)
+        data = sort(data, sort)
     end
 
     tablematrix = make_tablematrix(data)
