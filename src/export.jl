@@ -134,7 +134,8 @@ function cellformat(data, missingval, r, c, format::String)
     if val === nothing return missingval end
     try
         return Printf.format(Printf.Format(format), val)
-    catch
+    catch e
+        #println("error $val, $e")
         return val
     end
 
@@ -306,7 +307,7 @@ function htmlexport_(data;
         </TD>"""
     end
     if !nosort
-        sort!(data, sort)
+        data = sort(data, sort)
     end
 
     tablematrix = make_tablematrix(data)
@@ -314,7 +315,7 @@ function htmlexport_(data;
     for r = 1:rown
         rowstr = ""
         for c = 1:coln
-            if tablematrix[r,c] > 0 || !any(x -> x == cnames[c], rspan)
+            if tablematrix[r, c] > 0 || !any(x -> x == cnames[c], rspan)
                 rowstr *= """
             <TD ROWSPAN=$(any(x -> x == cnames[c], rspan) ? string(tablematrix[r,c]) : "1") VALIGN=TOP CLASS=\"$(cell_class(r, rown, c, coln))\">
                 <P ALIGN=RIGHT CLASS=cell>
